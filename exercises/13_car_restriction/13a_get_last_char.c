@@ -15,7 +15,13 @@
 #include <stdio.h>
 
 char get_last_char(char str[]) {
-#error TODO: Fix this exercise. Run "clings hint" for help.
+    char c;
+    int i = 0;
+    do{
+        c = str[i];
+        i++;
+    }while(str[i] != '\0');
+    return c;
 }
 
 int main(void) {

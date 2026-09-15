@@ -43,8 +43,33 @@ int main(void) {
         }
 
     i = 0;
-
-#error TODO: Implement state machine loop with 4 branches for word counting. Run "clings hint" for help.
+    char c = buf[i];
+    while (c != '\0') 
+    {
+        if(state == 0)
+        {
+            if(get_input_type(c) == 1)
+            {
+                counter = i;
+                state = 1;
+            }
+        }
+        else
+        {
+            if(get_input_type(c) == 0)
+            {
+                state = 0;
+                words++;
+                printf("word %d found!\n", words);
+                for(int j = counter; j < i; j++){
+                    printf("%c", buf[j]);
+                }
+                printf("\n");
+            }
+        }
+        i++;
+        c = buf[i];
+    }
 
     printf("there is %d words found!\n", words);
     return 0;
